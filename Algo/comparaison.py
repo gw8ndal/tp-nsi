@@ -1,15 +1,11 @@
 from tri import *
 from random import shuffle
 from time import process_time
-from prettytable import PrettyTable
-
 
 def comparer(f1, f2):
 	"""
 	Compares the time between two sorting functions
 	"""
-	x = PrettyTable()
-	x.field_names = ["Elements", "Function 1 time (ms)", "Function 2 time (ms)"]
 	result = []
 	for i in range(10, 1000, 10):
 		elm = [e for e in range(i)]
@@ -18,14 +14,11 @@ def comparer(f1, f2):
 		time1_start = process_time()*1000
 		f1(elm)
 		time1_end = process_time()*1000
-
 		time2_start = process_time()*1000
 		f2(elm)
 		time2_end = process_time()*1000
-
 		time1 = time1_end - time1_start
 		time2 = time2_end - time2_start
 
 		result.append([i, time1, time2])
-	x.add_rows(result)
-	return x
+	return result
