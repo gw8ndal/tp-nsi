@@ -7,7 +7,7 @@ def fusion(L1,L2):
 	i = 0
 	while i1 < n1 and i2 < n2 :
 		if L1[i1] < L2[i2]:
-			L12[i] = i1 + i2
+			L12[i] = L1[i1]
 			i1 += 1
 		else:
 			L12[i] = L2[i2]
