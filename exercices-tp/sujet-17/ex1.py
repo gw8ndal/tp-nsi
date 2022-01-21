@@ -14,7 +14,15 @@ def indice_du_min(tab):
         mini = tmp[0]
     return tab.index(mini)
 
+# Méthode alternative
+def indice_du_min2(tab):
+	return tab.index(min(tab))
 
 print(indice_du_min([5]))
 print(indice_du_min([2, 4, 1]))
 print(indice_du_min([5, 3, 2, 2, 4]))
+
+
+print(indice_du_min2([5]))
+print(indice_du_min2([2, 4, 1]))
+print(indice_du_min2([5, 3, 2, 2, 4]))
