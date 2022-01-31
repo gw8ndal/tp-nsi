@@ -46,4 +46,20 @@ def BFS(graph, node):
                 f.insert(0, i)
                 distance[i] = distance[current_node] + 1
     return distance
-print(BFS(G1, 'A'))
+print(BFS(G1, 'L'))
+
+def parcours_chemin(graph, node):
+    if node not in graph.nodes:
+        return {}
+    f = [node]
+    parcours={node:None}
+    while len(f)>0:
+        current_node = f.pop()
+        g_neighbors = graph.neighbors(current_node)
+        for i in g_neighbors:
+            if i not in parcours.keys():
+                f.insert(0, i)
+                parcours[i] = current_node
+    return parcours
+
+print(parcours_chemin(G1, 'J'))
