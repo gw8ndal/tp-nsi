@@ -16,25 +16,27 @@ edges = [('A', 'B'),
          ('K', 'G'),
          ('J', 'L'),
         ]
+options = {
+    "font_size": 8,
+    "node_size": 1000,
+    "edgecolors": "#4682B4",
+    "alpha": 0.95,
+    "linewidths": 2,
+    "width": 2,
+}
+
 # Ajout des arêtes pondérés
 for edge in edges:
     G1.add_edge(edge[0], edge[1])
 
 def show_graph(): # affiche le graph avec graphviz et networkx
-    options = {
-        "font_size": 8,
-        "node_size": 1000,
-        "edgecolors": "#4682B4",
-        "alpha": 0.95,
-        "linewidths": 2,
-        "width": 2,
-    }
     plt.figure(figsize=(5,3))
     pos = nx.nx_agraph.graphviz_layout(G1)
     color_map=['#A0CBE2' for node in G1]
     #color_map=['#FFA500' if node=='A' else '#A0CBE2' for node in G]
     nx.draw(G1, pos, node_color=color_map, with_labels=True, **options)
     plt.show()
+# show_graph()
 
 def BFS(graph, node): # recherche d'un sommet dans le graph
     f = [node]
@@ -47,7 +49,7 @@ def BFS(graph, node): # recherche d'un sommet dans le graph
                 f.insert(0, i)
                 distance[i] = distance[current_node] + 1
     return distance
-BFS(G1, 'L')
+#BFS(G1, 'L')
 
 def parcours_chemin(graph, node): # trouver par quels sommets il faut passer pour faire un chemin court
     if node not in graph.nodes:
@@ -63,16 +65,29 @@ def parcours_chemin(graph, node): # trouver par quels sommets il faut passer pou
                 parcours[i] = current_node
     return parcours
 
-print(parcours_chemin(G1, 'J'))
+# print(parcours_chemin(G1, 'J'))
 
-def chemin(G, start, end): # retourne le chemin le plus court
-    parcours = parcours_chemin(G, start)
-    chemin = []
-    for i in parcours.keys():
-        if i == end:
-            chemin.append(i)
-            end = parcours[i]
-    return chemin
+def chemin(G, start, end):
+    predecesseurs = parcours_chemin(G, start)
+    if not predecesseurs or end not in G.nodes:
+        return []
+    current = end
+    path=[current]
+    while current != start:
+        predecesseur = predecesseurs.get(current)
+        if predecesseur:
+            path.insert(0, predecesseur)
+            current = predecesseur
+    return path
 
-print(chemin(G1, 'A', 'G'))
+# print(chemin(G1, 'L', 'K'))
 
+path=chemin(G1, "L", "G")
+print(path)
+plt.figure(figsize=(4,3))
+
+pos = nx.nx_agraph.graphviz_layout(G1)
+color_map=['#FFA500' if node in path else '#A0CBE2' for node in G1]
+nx.draw(G1, pos, node_color=color_map, with_labels=True, **options)
+
+plt.show()
