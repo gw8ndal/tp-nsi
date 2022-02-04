@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-G3 = nx.Graph()
+import osmnx as ox
+
 edges = [('A', 'B', 640),
          ('A', 'C', 200),
          ('A', 'E', 170),

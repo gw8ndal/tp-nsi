@@ -1,2 +1,3 @@
 import osmnx as ox
-ox.plot_graph(ox.graph_from_place('Paris, France'))
+G3 = ox.graph_from_place('Chateaulin, France')
+
