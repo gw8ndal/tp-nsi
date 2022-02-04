@@ -1,7 +1,7 @@
-import networkx as nx
 import matplotlib.pyplot as plt
-import osmnx as ox
+import networkx as nx
 
+G3 = nx.Graph()
 edges = [('A', 'B', 640),
          ('A', 'C', 200),
          ('A', 'E', 170),
@@ -30,9 +30,6 @@ edges = [('A', 'B', 640),
          ("K", "M", 350),
          ("L", "M", 420),
         ]
-# Ajout des arêtes pondérés
-for edge in edges:
-    G3.add_edge(edge[0], edge[1], weight=edge[2])
 
 options = {
     "font_size": 8,
@@ -42,6 +39,18 @@ options = {
     "linewidths": 2,
     "width": 2,
 }
+
+# Ajout des arêtes pondérés
+for edge in edges:
+    G3.add_edge(edge[0], edge[1], weight=edge[2])
+
+pos = nx.spring_layout(G3, seed=1234)
+edge_labels = nx.get_edge_attributes(G3,'weight')
+color_map=['#A0CBE2' for node in G3]
+plt.figure(figsize=(8,5))
+nx.draw(G3, pos, with_labels=True, node_color=color_map, **options)
+nx.draw_networkx_edge_labels(G3, pos, edge_labels = edge_labels)
+plt.show()
 
 import heapq
 
@@ -84,4 +93,3 @@ nx.draw_networkx_edges(
 nx.draw_networkx_edge_labels(G3, pos, edge_labels = edge_labels)
 plt.axis('off')
 plt.show()
-
