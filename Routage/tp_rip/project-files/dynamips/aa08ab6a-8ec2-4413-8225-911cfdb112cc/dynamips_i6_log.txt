@@ -1,0 +1,15 @@
+Feb 21 10:28:12.985 HYPERVISOR: Release 0.2.21-amd64/Linux (tag 2019071212)
+Feb 21 10:28:12.985 HYPERVISOR: Started on IP = localhost, TCP port = 49803.
+Feb 21 10:28:12.990 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 21 10:28:12.990 HYPERVISOR: exec_cmd: hypervisor working_dir /home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips 
+Feb 21 10:28:12.990 GENERAL: working_dir=/home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips
+Feb 21 10:28:12.990 HYPERVISOR: exec_cmd: ethsw create Switch1 
+Feb 21 10:28:13.172 HYPERVISOR: exec_cmd: nio create_udp udp-05c13038-1088-4b9c-a426-17ca83d3b85d 10000 127.0.0.1 10001 
+Feb 21 10:28:13.173 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-05c13038-1088-4b9c-a426-17ca83d3b85d 
+Feb 21 10:28:13.178 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-05c13038-1088-4b9c-a426-17ca83d3b85d 1 
+Feb 21 10:28:13.192 HYPERVISOR: exec_cmd: ethsw remove_nio Switch1 udp-05c13038-1088-4b9c-a426-17ca83d3b85d 
+Feb 21 10:28:13.198 HYPERVISOR: exec_cmd: nio delete udp-05c13038-1088-4b9c-a426-17ca83d3b85d 
+Feb 21 10:28:13.201 HYPERVISOR: exec_cmd: ethsw delete Switch1 
+Feb 21 10:28:13.203 HYPERVISOR: exec_cmd: hypervisor stop 
+Feb 21 10:28:13.489 HYPERVISOR: Stopped.
+Feb 21 10:28:13.489 GENERAL: reset done.

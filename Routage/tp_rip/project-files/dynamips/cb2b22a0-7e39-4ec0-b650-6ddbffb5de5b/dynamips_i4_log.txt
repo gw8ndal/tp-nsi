@@ -1,0 +1,31 @@
+Feb 21 10:28:12.761 HYPERVISOR: Release 0.2.21-amd64/Linux (tag 2019071212)
+Feb 21 10:28:12.761 HYPERVISOR: Started on IP = localhost, TCP port = 50399.
+Feb 21 10:28:12.763 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 21 10:28:12.763 HYPERVISOR: exec_cmd: hypervisor working_dir /home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips 
+Feb 21 10:28:12.764 GENERAL: working_dir=/home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips
+Feb 21 10:28:12.764 HYPERVISOR: exec_cmd: hypervisor working_dir /home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips/a4f8c141-d0fe-4549-acd8-e44cf78903a4 
+Feb 21 10:28:12.764 GENERAL: working_dir=/home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips/a4f8c141-d0fe-4549-acd8-e44cf78903a4
+Feb 21 10:28:12.764 HYPERVISOR: exec_cmd: vm create R3 3 c7200 
+Feb 21 10:28:12.768 VM: VM R3 created.
+Feb 21 10:28:12.769 HYPERVISOR: exec_cmd: vm set_con_tcp_port R3 5017 
+Feb 21 10:28:12.769 HYPERVISOR: exec_cmd: c7200 get_mac_addr R3 
+Feb 21 10:28:12.769 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 21 10:28:12.770 HYPERVISOR: exec_cmd: vm slot_add_binding R3 0 0 C7200-IO-FE 
+Feb 21 10:28:12.770 HYPERVISOR: exec_cmd: vm set_disk0 R3 0 
+Feb 21 10:28:12.771 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 21 10:28:12.771 HYPERVISOR: exec_cmd: vm set_idle_pc R3 0x606f0000 
+Feb 21 10:28:12.773 HYPERVISOR: exec_cmd: vm set_ios R3 /home/g.troadec/GNS3/images/IOS/c7200-adventerprisek9-mz.124-15.T9.image 
+Feb 21 10:28:12.774 HYPERVISOR: exec_cmd: c7200 set_mac_addr R3 ca03.ccac.0000 
+Feb 21 10:28:12.774 HYPERVISOR: exec_cmd: vm set_nvram R3 512 
+Feb 21 10:28:12.775 HYPERVISOR: exec_cmd: vm set_ram R3 512 
+Feb 21 10:28:12.776 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 21 10:28:12.776 HYPERVISOR: exec_cmd: vm slot_add_binding R3 1 0 PA-GE 
+Feb 21 10:28:12.777 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 21 10:28:12.777 HYPERVISOR: exec_cmd: vm slot_add_binding R3 2 0 PA-GE 
+Feb 21 10:28:13.201 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 21 10:28:13.205 HYPERVISOR: exec_cmd: vm extract_config R3 
+Feb 21 10:28:13.214 HYPERVISOR: exec_cmd: vm delete R3 
+Feb 21 10:28:13.214 VM: VM R3 destroyed.
+Feb 21 10:28:13.223 HYPERVISOR: exec_cmd: hypervisor stop 
+Feb 21 10:28:13.263 HYPERVISOR: Stopped.
+Feb 21 10:28:13.263 GENERAL: reset done.

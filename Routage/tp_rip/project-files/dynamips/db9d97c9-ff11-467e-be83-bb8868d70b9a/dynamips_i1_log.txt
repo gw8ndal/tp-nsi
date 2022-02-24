@@ -1,0 +1,48 @@
+Feb 21 10:34:55.313 HYPERVISOR: Release 0.2.21-amd64/Linux (tag 2019071212)
+Feb 21 10:34:55.313 HYPERVISOR: Started on IP = localhost, TCP port = 45113.
+Feb 21 10:34:55.317 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 21 10:34:55.317 HYPERVISOR: exec_cmd: hypervisor working_dir /home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips 
+Feb 21 10:34:55.317 GENERAL: working_dir=/home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips
+Feb 21 10:34:55.318 HYPERVISOR: exec_cmd: hypervisor working_dir /home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips/db9d97c9-ff11-467e-be83-bb8868d70b9a 
+Feb 21 10:34:55.318 GENERAL: working_dir=/home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips/db9d97c9-ff11-467e-be83-bb8868d70b9a
+Feb 21 10:34:55.318 HYPERVISOR: exec_cmd: vm create R1 1 c7200 
+Feb 21 10:34:55.322 VM: VM R1 created.
+Feb 21 10:34:55.322 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 5015 
+Feb 21 10:34:55.322 HYPERVISOR: exec_cmd: c7200 get_mac_addr R1 
+Feb 21 10:34:55.323 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 21 10:34:55.323 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 0 C7200-IO-FE 
+Feb 21 10:34:55.324 HYPERVISOR: exec_cmd: vm set_disk0 R1 0 
+Feb 21 10:34:55.325 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 21 10:34:55.325 HYPERVISOR: exec_cmd: vm set_idle_pc R1 0x606f0000 
+Feb 21 10:34:55.328 HYPERVISOR: exec_cmd: vm set_ios R1 /home/g.troadec/GNS3/images/IOS/c7200-adventerprisek9-mz.124-15.T9.image 
+Feb 21 10:34:55.329 HYPERVISOR: exec_cmd: c7200 set_mac_addr R1 ca01.cc8b.0000 
+Feb 21 10:34:55.329 HYPERVISOR: exec_cmd: vm set_nvram R1 512 
+Feb 21 10:34:55.330 HYPERVISOR: exec_cmd: vm set_ram R1 512 
+Feb 21 10:34:55.331 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 21 10:34:55.331 HYPERVISOR: exec_cmd: vm slot_add_binding R1 1 0 PA-GE 
+Feb 21 10:34:55.332 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 21 10:34:55.332 HYPERVISOR: exec_cmd: vm slot_add_binding R1 2 0 PA-GE 
+Feb 21 10:34:55.883 HYPERVISOR: exec_cmd: nio create_udp udp-8ff3d019-cfdb-471c-8768-faa440c8727e 10002 127.0.0.1 10003 
+Feb 21 10:34:56.122 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 1 0 udp-8ff3d019-cfdb-471c-8768-faa440c8727e 
+Feb 21 10:34:56.123 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 21 10:34:56.184 HYPERVISOR: exec_cmd: nio create_udp udp-2712e932-d000-40fd-be48-086e66fb8867 10006 127.0.0.1 10007 
+Feb 21 10:34:56.186 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 2 0 udp-2712e932-d000-40fd-be48-086e66fb8867 
+Feb 21 10:34:56.187 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 21 10:34:57.430 HYPERVISOR: exec_cmd: nio create_udp udp-c3f082fd-7aca-4b00-aa85-58cf724a70d1 10034 127.0.0.1 10035 
+Feb 21 10:34:57.432 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 0 udp-c3f082fd-7aca-4b00-aa85-58cf724a70d1 
+Feb 21 10:34:57.433 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 21 10:35:35.432 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Feb 21 10:35:35.435 HYPERVISOR: exec_cmd: vm set_ghost_file R1 /home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips/c7200-adventerprisek9-mz.124-15.T9.image-512.ghost 
+Feb 21 10:35:35.435 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 21 10:35:35.437 HYPERVISOR: exec_cmd: vm set_config R1 configs/i1_startup-config.cfg 
+Feb 21 10:35:35.438 HYPERVISOR: exec_cmd: vm start R1 
+Feb 21 10:36:05.746 HYPERVISOR: exec_cmd: vm extract_config R1 
+Feb 21 10:55:59.040 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 21 10:55:59.041 HYPERVISOR: exec_cmd: vm stop R1 
+Feb 21 10:55:59.172 VM: VM R1 shutdown.
+Feb 21 10:55:59.173 HYPERVISOR: exec_cmd: vm extract_config R1 
+Feb 21 10:55:59.180 HYPERVISOR: exec_cmd: vm delete R1 
+Feb 21 10:55:59.180 VM: VM R1 destroyed.
+Feb 21 10:55:59.186 HYPERVISOR: exec_cmd: hypervisor stop 
+Feb 21 10:55:59.309 HYPERVISOR: Stopped.
+Feb 21 10:55:59.309 GENERAL: reset done.
