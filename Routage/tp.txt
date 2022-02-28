@@ -1,89 +1,133 @@
-tp ecrit ici
+## Observations des tables de routage
 
-1.2 Observations des tables de routage
+### R1
+Que signifient le C et le R ?
+ - C = connected & R = RIP
 
-R1#show ip route
+Où, selon vous, se trouve la métrique des différentes destinations ?
+ - metrique -> [120/x]
 
-- Que signifient le C et le R ?
-    C = connect et R = RIP
+Etablir la table de routage du routeur R1 (destination, passerelle, interface, métrique)
+     1.0.0.0/24 is subnetted, 1 subnets
+C       1.1.1.0 is directly connected, GigabitEthernet2/0
+R    2.0.0.0/8 [120/1] via 1.1.1.2, 00:00:23, GigabitEthernet2/0
+R    3.0.0.0/8 [120/2] via 1.1.1.2, 00:00:23, GigabitEthernet2/0
+R    4.0.0.0/8 [120/3] via 1.1.1.2, 00:00:23, GigabitEthernet2/0
+R    20.0.0.0/8 [120/4] via 1.1.1.2, 00:00:23, GigabitEthernet2/0
+R    5.0.0.0/8 [120/4] via 1.1.1.2, 00:00:23, GigabitEthernet2/0
+     6.0.0.0/24 is subnetted, 1 subnets
+C       6.1.1.0 is directly connected, FastEthernet0/0
+     10.0.0.0/24 is subnetted, 1 subnets
+C       10.1.1.0 is directly connected, GigabitEthernet1/0
 
-- Où, selon vous, se trouve la métrique des différentes destinations ?
-    [120/X]
+Cette table de routage vous semble t-elle 'normale' quand on regarde le schéma du réseau?
+ - oui
 
-- Etablir la table de routage du routeur R1 (destination, passerelle, interface, métrique)
-         1.0.0.0/24 is subnetted, 1 subnets
-    C       1.1.1.0 is directly connected, GigabitEthernet2/0
-    R    2.0.0.0/8 [120/1] via 1.1.1.2, 00:00:29, GigabitEthernet2/0
-    R    3.0.0.0/8 [120/2] via 1.1.1.2, 00:00:29, GigabitEthernet2/0
-    R    4.0.0.0/8 [120/3] via 1.1.1.2, 00:00:29, GigabitEthernet2/0
-    R    20.0.0.0/8 [120/4] via 1.1.1.2, 00:00:29, GigabitEthernet2/0
-    R    5.0.0.0/8 [120/4] via 1.1.1.2, 00:00:29, GigabitEthernet2/0
-         6.0.0.0/24 is subnetted, 1 subnets
-    C       6.1.1.0 is directly connected, FastEthernet0/0
-         10.0.0.0/24 is subnetted, 1 subnets
-    C       10.1.1.0 is directly connected, GigabitEthernet1/0
-
-- Cette table de routage vous semble t-elle 'normale' quand on regarde le schéma du réseau?
-    oui
-
-- Etablir la table de routage du routeur R3 (destination, passerelle, interface, métrique)
+### R3
+Etablir la table de routage du routeur R1 (destination, passerelle, interface, métrique)
 R    1.0.0.0/8 [120/1] via 2.1.1.2, 00:00:08, GigabitEthernet1/0
      2.0.0.0/24 is subnetted, 1 subnets
 C       2.1.1.0 is directly connected, GigabitEthernet1/0
      3.0.0.0/24 is subnetted, 1 subnets
 C       3.1.1.0 is directly connected, GigabitEthernet2/0
-R    4.0.0.0/8 [120/1] via 3.1.1.4, 00:00:13, GigabitEthernet2/0
-R    20.0.0.0/8 [120/2] via 3.1.1.4, 00:00:13, GigabitEthernet2/0
-R    5.0.0.0/8 [120/2] via 3.1.1.4, 00:00:13, GigabitEthernet2/0
+R    4.0.0.0/8 [120/1] via 3.1.1.4, 00:00:06, GigabitEthernet2/0
+R    20.0.0.0/8 [120/2] via 3.1.1.4, 00:00:06, GigabitEthernet2/0
+R    5.0.0.0/8 [120/2] via 3.1.1.4, 00:00:06, GigabitEthernet2/0
 R    6.0.0.0/8 [120/2] via 2.1.1.2, 00:00:08, GigabitEthernet1/0
 R    10.0.0.0/8 [120/2] via 2.1.1.2, 00:00:08, GigabitEthernet1/0
 
-- Lancer la commande qui permet de connaitre la route utilisée pour atteindre VPC3 et coller le résultat dans votre TP
--> trace 20.1.1.0
-trace to 20.1.1.0, 8 hops max, press Ctrl+C to stop
- 1   10.1.1.254   9.295 ms  12.592 ms  6.777 ms
- 2   1.1.1.2   19.379 ms  20.219 ms  19.860 ms
- 3   2.1.1.3   29.489 ms  29.411 ms  29.313 ms
- 4   3.1.1.4   49.465 ms  50.340 ms  49.956 ms
- 5   4.1.1.5   59.971 ms  59.514 ms  60.405 ms
+## VPC1 -> VPC3
 
-PC1 -> R1 -> R2 -> R3 -> R4 -> R5
+Lancer la commande qui permet de connaitre la route utilisée pour atteindre VPC3 et coller le résultat dans votre TP
+ - trace 20.1.1.3
 
-- Pinger le routeur R6
-	ping 6.1.1.0
-	6.1.1.0 icmp_seq=1 timeout
+Symboliser la route suivie par des flèches.
+ - 10.1.1.1 -> 10.1.1.254 -> 1.1.1.2 -> 2.1.1.3 -> 3.1.1.4 -> 4.1.1.5 -> 20.1.1.3
 
-- Quel est le problème du routeur R6?
-	les deux interfaces sont éteintes
+pinger le routeur R6
+ - ping 6.1.1.6 :
+     6.1.1.6 icmp_seq=1 timeout
 
-- Estimer la durée d'une boucle
-	Environ 30s
+## Interface du routeur R6
 
-- Provenance des informations
-    - R3 reçoit ses informations de quels routeurs ?
-    R2 et R4
-    - Quelles sont ces informations ?
-    Leur table de routage
-    - Copier coller les lignes en question dans votre TP.
-*Feb 24 11:49:53.127: RIP: received v2 update from 3.1.1.4 on GigabitEthernet2/0
-*Feb 24 11:50:02.511: RIP: received v2 update from 2.1.1.2 on GigabitEthernet1/0
-- Envoi d'informations de la part de R3
-  - A quelle adresse IP R3 envoie t-il ses infos ?
-	224.0.0.9
-  - Se renseigner sur cette IP.
-  adresse ip utilisée pour envoyer les informations de routage à tout les routeurs du réseau
-  - Copier coller les lignes en question dans votre TP.
-	*Feb 24 12:05:04.819: RIP: sending v2 update to 224.0.0.9 via GigabitEthernet1/0 (2.1.1.3)
+Quel est le problème du routeur R6?
+ - les deux interfaces sont éteintes
 
-- Quelles sont les sources des paquets ?
-	R2 et R3
-- Quelle est la destination ?
-	224.0.0.9
-- Quel est l'intervalle de temps ?
-	environ 30s
-- Dans la couche transport, quel est le protocole utilisé ? 
-	UDP
+## Observation du protocole RIP
+
+Estimer la durée d'une boucle
+ - environ 30s
+
+Provenance des informations
+   - R3 reçoit ses informations de quels routeurs ?
+       il reçoit des infos des routeurs R1, R2, R4, R5
+   - Quelles sont ces informations ?
+       il reçoient leurs tables de routages
+   - Copier coller les lignes en question dans votre TP.
+       *Feb 24 11:49:19.803: RIP: received v2 update from 3.1.1.4 on GigabitEthernet2/0
+       *Feb 24 11:49:02.215: RIP: received v2 update from 2.1.1.2 on GigabitEthernet1/0
+
+
+Envoi d'informations de la part de R3
+
+   - A quelle adresse IP R3 envoie t-il ses infos ?
+       224.0.0.9
+   - Se renseigner sur cette IP.
+       adresse ip utilisé pour envoyer les informations de routage à tout les routeurs du réseau configuré pour
+   - Copier coller les lignes en question dans votre TP.
+       *Feb 24 11:49:25.187: RIP: sending v2 update to 224.0.0.9 via GigabitEthernet2/0 (3.1.1.3)
+
+
+Quelles sont les sources des paquets ?
+    2.1.1.2 & 2.1.1.3
+Quelle est la destination ?
+    224.0.0.9
+Quel est l'intervalle de temps ?
+    environ 30s
+
+Dans la couche transport, quel est le protocole utilisé ? 
+    UDP -> User Datagram protocol
+
 
 ## Simulation d'une panne réseau
-sur le tp de yanis, gns3 marche poh
 
+Quelles sont vos observations ?
+ - Avant de stopper R5, l'ip 20.0.0.0 avait une métrique de 5 pour R1 et de 2 pour R4
+ - 3 minutes après avoir stopper R5, les métrique de R1 et R4 pour l'ip 20.0.0.0 est passé à 16
+
+A quoi correspond une métrique de 16 dans le protocole RIP ?
+ - la métrique 16 correspond à une métrique 'infini', donc l'ip n'est pas accessible
+
+En combien de temps l'information de la panne s'est propagée à R4 ?
+ - 3 minutes
+
+les durées que vous avez chronométrées correspondent-elles aux informations données par la commande ?
+ - 'Invalid after 180 seconds, hold down 180'
+    180 secondes = 3 minutes
+
+## Mise à jour des tables de routage
+
+Etablir la table de routage du routeur R1 (destination, passerelle, interface, métrique);
+     1.0.0.0/24 is subnetted, 1 subnets
+C       1.1.1.0 is directly connected, GigabitEthernet2/0
+R    2.0.0.0/8 [120/1] via 1.1.1.2, 00:00:03, GigabitEthernet2/0
+R    3.0.0.0/8 [120/2] via 1.1.1.2, 00:00:03, GigabitEthernet2/0
+R    4.0.0.0/8 [120/2] via 6.1.1.6, 00:00:19, FastEthernet0/0
+R    20.0.0.0/8 [120/2] via 6.1.1.6, 00:00:19, FastEthernet0/0
+R    5.0.0.0/8 [120/1] via 6.1.1.6, 00:00:19, FastEthernet0/0
+     6.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C       6.1.1.0/24 is directly connected, FastEthernet0/0
+R       6.0.0.0/8 [120/6] via 6.1.1.6, 00:00:19, FastEthernet0/0
+     10.0.0.0/24 is subnetted, 1 subnets
+C       10.1.1.0 is directly connected, GigabitEthernet1/0
+
+Depuis R1, faites un trace 20.1.1.3
+  1 6.1.1.6 12 msec 20 msec 20 msec
+  2 5.1.1.5 16 msec 44 msec 32 msec
+  3  * 
+    20.1.1.3 36 msec 40 msec
+
+Conclusion :
+ - Maintenant que le routeur R6 est rédemarrer,
+   le réseau 10.1.1.0 passe par R6 et R5 pour se connecter au réseau 20.1.1.0
+   
