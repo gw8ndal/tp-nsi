@@ -31,15 +31,3 @@ b. 5 = 10⁸/d
    Coût du chemin A > D > E > G:
     10⁸/10¹⁰ + 10⁸/10¹¹ + 10⁸/10⁸ = 1.011
    Le chemin A > D > E > G est donc le plus rapide
-
-
-
-
-
-
-
-
-
-
-
-
