@@ -4,7 +4,6 @@ b.
 /------------------------------------------------\
 |  Destination  |  Routeur Suivant  |  Distance  |
 |      A        |        F          |     3      |
-|      B        |        E          |     3      |
 |      C        |        F          |     2      |
 |      D        |        E          |     2      |
 |      E        |        E          |     1      |
