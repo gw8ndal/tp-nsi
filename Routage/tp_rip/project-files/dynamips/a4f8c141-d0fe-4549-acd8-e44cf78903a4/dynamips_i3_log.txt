@@ -1,0 +1,51 @@
+Feb 28 09:52:45.025 HYPERVISOR: Release 0.2.21-amd64/Linux (tag 2019071212)
+Feb 28 09:52:45.025 HYPERVISOR: Started on IP = localhost, TCP port = 43049.
+Feb 28 09:52:45.027 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 28 09:52:45.028 HYPERVISOR: exec_cmd: hypervisor working_dir /home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips 
+Feb 28 09:52:45.028 GENERAL: working_dir=/home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips
+Feb 28 09:52:45.028 HYPERVISOR: exec_cmd: hypervisor working_dir /home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips/db9d97c9-ff11-467e-be83-bb8868d70b9a 
+Feb 28 09:52:45.028 GENERAL: working_dir=/home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips/db9d97c9-ff11-467e-be83-bb8868d70b9a
+Feb 28 09:52:45.028 HYPERVISOR: exec_cmd: vm create R1 1 c7200 
+Feb 28 09:52:45.032 VM: VM R1 created.
+Feb 28 09:52:45.032 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 5015 
+Feb 28 09:52:45.033 HYPERVISOR: exec_cmd: c7200 get_mac_addr R1 
+Feb 28 09:52:45.033 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 28 09:52:45.033 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 0 C7200-IO-FE 
+Feb 28 09:52:45.034 HYPERVISOR: exec_cmd: vm set_disk0 R1 0 
+Feb 28 09:52:45.034 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 28 09:52:45.034 HYPERVISOR: exec_cmd: vm set_idle_pc R1 0x606f0000 
+Feb 28 09:52:45.037 HYPERVISOR: exec_cmd: vm set_ios R1 /home/g.troadec/GNS3/images/IOS/c7200-adventerprisek9-mz.124-15.T9.image 
+Feb 28 09:52:45.037 HYPERVISOR: exec_cmd: c7200 set_mac_addr R1 ca01.cc8b.0000 
+Feb 28 09:52:45.038 HYPERVISOR: exec_cmd: vm set_nvram R1 512 
+Feb 28 09:52:45.038 HYPERVISOR: exec_cmd: vm set_ram R1 512 
+Feb 28 09:52:45.038 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 28 09:52:45.038 HYPERVISOR: exec_cmd: vm slot_add_binding R1 1 0 PA-GE 
+Feb 28 09:52:45.039 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 28 09:52:45.039 HYPERVISOR: exec_cmd: vm slot_add_binding R1 2 0 PA-GE 
+Feb 28 09:52:45.613 HYPERVISOR: exec_cmd: nio create_udp udp-865cde79-74d3-4d34-87da-25b333c243f4 10002 127.0.0.1 10003 
+Feb 28 09:52:45.837 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 1 0 udp-865cde79-74d3-4d34-87da-25b333c243f4 
+Feb 28 09:52:45.837 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 28 09:52:45.902 HYPERVISOR: exec_cmd: nio create_udp udp-42f506b6-b530-47c6-bc8a-eaf518626d15 10006 127.0.0.1 10007 
+Feb 28 09:52:45.905 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 2 0 udp-42f506b6-b530-47c6-bc8a-eaf518626d15 
+Feb 28 09:52:45.905 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 28 09:52:47.136 HYPERVISOR: exec_cmd: nio create_udp udp-3811a6da-f08b-4af2-9101-b38e6ffa723b 10034 127.0.0.1 10035 
+Feb 28 09:52:47.138 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 0 udp-3811a6da-f08b-4af2-9101-b38e6ffa723b 
+Feb 28 09:52:47.138 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 28 09:52:53.162 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Feb 28 09:52:53.164 HYPERVISOR: exec_cmd: vm set_ghost_file R1 /home/g.troadec/Documents/NSI/tp-nsi/Routage/tp_rip/project-files/dynamips/c7200-adventerprisek9-mz.124-15.T9.image-512.ghost 
+Feb 28 09:52:53.164 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 28 09:52:53.166 HYPERVISOR: exec_cmd: vm set_config R1 configs/i1_startup-config.cfg 
+Feb 28 09:52:53.167 HYPERVISOR: exec_cmd: vm start R1 
+Feb 28 09:53:17.533 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 28 09:53:17.533 HYPERVISOR: exec_cmd: vm stop R1 
+Feb 28 09:53:17.656 VM: VM R1 shutdown.
+Feb 28 09:53:17.657 HYPERVISOR: exec_cmd: vm extract_config R1 
+Feb 28 09:53:19.833 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 28 09:53:19.835 HYPERVISOR: exec_cmd: vm extract_config R1 
+Feb 28 09:53:20.266 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 28 09:53:20.268 HYPERVISOR: exec_cmd: vm extract_config R1 
+Feb 28 09:53:20.270 HYPERVISOR: exec_cmd: vm delete R1 
+Feb 28 09:53:20.270 VM: VM R1 destroyed.
+Feb 28 09:53:20.276 HYPERVISOR: exec_cmd: hypervisor stop 
+Feb 28 09:53:20.556 HYPERVISOR: Stopped.
+Feb 28 09:53:20.556 GENERAL: reset done.
