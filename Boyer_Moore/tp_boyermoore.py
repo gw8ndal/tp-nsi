@@ -61,11 +61,8 @@ def cherche_motif(motif, texte, mode=0):
         return occ
 
 ### vérification
-motif = 'bee'
-texte = requests.get("https://gist.githubusercontent.com/ElliotGluck/64b0b814293c09999f765e265aaa2ba1/raw/79f24f9f87654d7ec7c2f6ba83e927852cdbf9a5/gistfile1.txt").text
-
-table = pretraitement('CGGCAG')
-print(table)
+motif = 'Frankenstein'
+texte = requests.get("https://www.gutenberg.org/files/84/84-0.txt").text.replace(" ", "")
 print(cherche_motif(motif, texte, 1))
 
 # Tests mode 0
