@@ -62,7 +62,7 @@ def cherche_motif(motif, texte, mode=0):
 
 ### vérification
 motif = 'Frankenstein'
-texte = requests.get("https://www.gutenberg.org/files/84/84-0.txt").text.replace(" ", "")
+texte = requests.get("https://www.gutenberg.org/files/84/84-0.txt").text.replace(' ', '')
 print(cherche_motif(motif, texte, 1))
 
 # Tests mode 0
