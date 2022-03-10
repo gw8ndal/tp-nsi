@@ -12,53 +12,45 @@ def pretraitement(motif):
 def cherche_motif(motif, texte, mode = 0):
     """
     Cherche un motif dans un texte
-    Retourne Vrai si le motif est trouvé ou si il est vide, faux sinon
+    Retourne Vrai si le motif est trouvé, faux sinon
     """
+   
+    n = 0
     T = len(texte)
     M = len(motif)
-    occurence = 0
     # On crée la table des sauts
     sauts = pretraitement(motif)
+   
+    if motif =='':
+        if mode == 0:
+            return False
+        elif mode == 1 :
+            return n
+   
     # Si le motif est plus long que le texte on retourne False
     if M > T:
         if mode == 0:
             return False
-        else:
-            return 0
-    if motif == '':
-        if mode == 0:
-            return False
-        elif mode == 1:
-            return 0
-
-    # On commence à l'indice de la dernière lettre du motif
+        elif mode == 1 :
+            return n
+      # On commence à l'indice de la dernière lettre du motif
     i = M-1
-    j = M-1
-    while j<T:
-        i = M-1
-        k = j
-        while i >= 0 and texte[k] == motif[i]:
-            i -= 1
-            k -= 1
-        if i >= 0:
-            if texte[k] in motif[:-1]:
-                j += sauts[texte[k]]
-            else:
-                j += M
-        else:
-            if texte[k] in motif[:-1]:
-                j += sauts[texte[k]]
-            else:
-                j += M 
-            
-            if mode == 0:
-                return True
-            elif mode == 1:
-                occurence += 1
+    while i<T:
+        letter = texte[i]
+        if letter == motif[-1] :
+            if texte[i-M+1:i+1] == motif :
+                if mode == 0:
+                    return True
+                elif mode == 1 :
+                    n = n + 1
+        if letter in sauts.keys():
+            i += sauts[letter]
+        else :
+            i+=1
     if mode == 0:
         return False
-    elif mode == 1:
-        return occurence
+    elif mode == 1 :
+        return n
 
 ### vérification
 motif = 'CGGCAG'
@@ -78,5 +70,6 @@ assert cherche_motif('', 'abracadabra') == 0
 assert cherche_motif('abracadabra', 'cad') == 0
 
 
-data  = requests.get("https://www.gutenberg.org/files/84/84-0.txt").text
-print(cherche_motif('Frankenstein', data, 1))
+data  = requests.get("https://www.gutenberg.org/files/84/84-0.txt")
+data.encoding = 'utf-8'
+print(cherche_motif('.', data.text.lower(), 1))
