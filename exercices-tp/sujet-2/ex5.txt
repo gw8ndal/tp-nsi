@@ -7,7 +7,7 @@ a. Il pourra aller vers R3, R4, puis R6.
 b. La ligne de la passerelle et de l'interface pour le routeur R1.
 
 3/
-a. 10⁹÷10⁶ = 1000
+a. 10⁹÷10⁷ = 100
 b. L1 -> R1 -> R2 -> R6 -> L2
 Cout:      100 + 10          = 100
 c. La table de routage de R4 sera changée pour pointer vers R5 au lieu de R6.
