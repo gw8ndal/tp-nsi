@@ -8,6 +8,8 @@ b. La ligne de la passerelle et de l'interface pour le routeur R1.
 
 3/
 a. 10⁹÷10⁷ = 100
-b. L1 -> R1 -> R2 -> R6 -> L2
-Cout:      100 + 10          = 100
-c. La table de routage de R4 sera changée pour pointer vers R5 au lieu de R6.
+b. L1 -> R1 -> R2 -> R4 -> R5 -> R6
+Cout:      100 +  1  +  1  +  1 = 103
+c.
+La table de routage de R2 sera changée pour pointer vers R4 au lieu de R6.
+La table de routage de R4 sera changée pour pointer vers R5 au lieu de R6.
