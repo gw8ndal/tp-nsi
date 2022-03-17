@@ -26,10 +26,74 @@ def sous_pyramide_droite(p):
     facho = [l[1:] for l in p if len(l) > 1]
     return facho
 
-p = generer_pyramide(5)
+def recherche_max_brute(p):
+    """
+    Recherche du chemin optimal parmi tous les chemins possibles
+    """
+    s = p[0][0]
+    if len(p) == 1:
+        return s
+    else:
+        p_gaucho = sous_pyramide_gauche(p)
+        p_facho = sous_pyramide_droite(p)
+        return s + max(recherche_max_brute(p_gaucho), recherche_max_brute(p_facho))
+
+def build_max_pyramide_recursif(p, line = 0):
+    """
+    Retourne la pyramide p_max ( p est modifiée 'in place' )
+        4                4
+       9 1             13 5
+      1 2 9    =>    14 15 14
+     1 7 9 1        15 22 24 15
+    line : le numéro de ligne
+    """
+    # Si on ne se trouve pas au sommet
+    if line != 0:
+        # Pour la première case de la ligne courante, on ajoute la première case de la ligne du dessus
+        p[line][0] += p[line-1][0]
+        # Pour la dernière case de la ligne courante, on ajoute la dernière case de la ligne du dessus
+        p[line][-1] += p[line-1][-1]
+        # On parcourt toutes les autres cases et on y ajoute le plus grand contenu des deux cases supérieures
+        for i in range(1,line):
+            p[line][i] += max(p[line-1][i-1], p[line-1][i])
+            
+    # Cas général : nous ne sommes pas à la dernière ligne 
+    if line < len(p) - 1:
+        return build_max_pyramide_recursif(p, line+1)
+    # Cas d'arrêt : on est arrivé à la dernière ligne
+    else:
+        return p
+
+def build_max_pyramide_iteratif(p):
+    """
+    Retourne la pyramide p_max ( p est modifiée 'in place' )
+        4                4
+       9 1             13 5
+      1 2 9    =>    14 15 14
+     1 7 9 1        15 22 24 15
+    line : le numéro de ligne
+    """
+    while line > len(p) - 1:
+        # Pour la première case de la ligne courante, on ajoute la première case de la ligne du dessus
+        p[line][0] += p[line-1][0]
+        # Pour la dernière case de la ligne courante, on ajoute la dernière case de la ligne du dessus
+        p[line][-1] += p[line-1][-1]
+        # On parcourt toutes les autres cases et on y ajoute le plus grand contenu des deux cases supérieures
+        for i in range(1,line):
+            p[line][i] += max(p[line-1][i-1], p[line-1][i])
+        p.append(max(p[line]))
+        line += 1
+
+    return p
+
+
+p = generer_pyramide(6)
+enorme_p = generer_pyramide(20)
 afficher_pyramide(p)
 
 afficher_pyramide(sous_pyramide_gauche(p))
 
-
 afficher_pyramide(sous_pyramide_droite(p))
+
+#print(recherche_max_brute(enorme_p))
+print(afficher_pyramide(build_max_pyramide_recursif(p)))
