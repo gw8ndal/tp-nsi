@@ -73,16 +73,12 @@ def build_max_pyramide_iteratif(p):
      1 7 9 1        15 22 24 15
     line : le numéro de ligne
     """
-    while line > len(p) - 1:
-        # Pour la première case de la ligne courante, on ajoute la première case de la ligne du dessus
-        p[line][0] += p[line-1][0]
-        # Pour la dernière case de la ligne courante, on ajoute la dernière case de la ligne du dessus
-        p[line][-1] += p[line-1][-1]
-        # On parcourt toutes les autres cases et on y ajoute le plus grand contenu des deux cases supérieures
-        for i in range(1,line):
-            p[line][i] += max(p[line-1][i-1], p[line-1][i])
-        p.append(max(p[line]))
-        line += 1
+    for line in range(1, len(p)):
+
+        p[line][0] += p[line - 1][0]
+        p[line][-1] += p[line - 1][-1]
+        for i in range(1, line - 1):
+                p[line][i] += max(p[line - 1][i - 1], p[line - 1][i])
 
     return p
 
@@ -91,9 +87,9 @@ p = generer_pyramide(6)
 enorme_p = generer_pyramide(20)
 afficher_pyramide(p)
 
-afficher_pyramide(sous_pyramide_gauche(p))
+# afficher_pyramide(sous_pyramide_gauche(p))
 
-afficher_pyramide(sous_pyramide_droite(p))
+# afficher_pyramide(sous_pyramide_droite(p))
 
 #print(recherche_max_brute(enorme_p))
-print(afficher_pyramide(build_max_pyramide_recursif(p)))
+afficher_pyramide(build_max_pyramide_iteratif(p))
