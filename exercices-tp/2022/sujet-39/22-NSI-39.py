@@ -36,9 +36,9 @@ def zoomListe(liste_depart,k):
     '''renvoie une liste contenant k fois chaque 
        element de liste_depart'''
     liste_zoom = ...
-    for elt in liste_depart :
+    for elt in ... :
         for i in range(k):
-            
+            ...
     return liste_zoom
 
 def zoomDessin(grille,k):
