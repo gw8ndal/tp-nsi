@@ -1,3 +1,4 @@
+# Exercice 1
 def moyenne(liste):
     '''
     Renvoie la moyenne des valeurs de la liste
@@ -7,6 +8,7 @@ def moyenne(liste):
 
 print(moyenne([10,20,30,40,60,110]))
 
+# Exercice 2
 coeur = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], \
          [0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0], \
          [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0], \

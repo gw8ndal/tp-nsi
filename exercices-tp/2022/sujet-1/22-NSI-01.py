@@ -1,3 +1,4 @@
+# Exercice 1
 def recherche(caractere, mot):
     '''
     renvoie le nombre d’occurrences de caractere dans mot,
@@ -18,7 +19,7 @@ print(recherche('e', "sciences"))
 print(recherche('i',"mississippi"))
 print(recherche('a',"mississippi"))
 
-
+# Exercice 2
 Pieces = [100,50,20,10,5,2,1]
 def rendu_glouton(arendre, solution=[], i=0):
     if arendre == 0:

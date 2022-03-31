@@ -1,3 +1,4 @@
+# Exercice 1
 def delta(tab):
     """
     renvoie un tableau en remplaçant les valeurs par la différence avec la valeur précédente
@@ -11,6 +12,7 @@ def delta(tab):
 print(delta([1000, 800, 802, 1000, 1003]))
 print(delta([42]))
 
+# Exercice 2
 class Noeud:
     def __init__(self, g, v, d):
         self.gauche = g

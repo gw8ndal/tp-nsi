@@ -1,19 +1,39 @@
+# Exercice 1
+def tri_selection(tab):
+    '''
+    Renvoie le tableau trié par ordre croissant
+    '''
+    for i in range(len(tab)):
+        mini = i
+        for j in range(i+1, len(tab)):
+            if tab[mini] > tab[j]:
+                mini = j
+        tmp = tab[i]
+        tab[i] = tab[mini]
+        tab[mini] = tmp
+    return tab
+
+print(tri_selection([1,52,6,-9,12]))
+
+# Exercice 2
 from random import randint
 
 def plus_ou_moins():
-    nb_mystere = randint(1,...)
+    nb_mystere = randint(1,99)
     nb_test = int(input("Proposez un nombre entre 1 et 99 : "))
-    compteur = ...
+    compteur = 0
 
-    while nb_mystere != ... and compteur < ... :
-        compteur = compteur + ...
-        if nb_mystere ... nb_test:
+    while nb_mystere != nb_test and compteur < 11 :
+        compteur = compteur + 1
+        if nb_mystere > nb_test:
             nb_test = int(input("Trop petit ! Testez encore : "))
         else:
             nb_test = int(input("Trop grand ! Testez encore : "))
 
     if nb_mystere == nb_test:
-        print ("Bravo ! Le nombre etait ",...)
-        print("Nombre d'essais: ",...)
+        print ("Bravo ! Le nombre était",nb_mystere)
+        print("Nombre d'essais:",compteur)
     else:
-        print ("Perdu ! Le nombre etait ",...)
+        print ("Perdu ! Le nombre était",nb_mystere)
+
+plus_ou_moins()

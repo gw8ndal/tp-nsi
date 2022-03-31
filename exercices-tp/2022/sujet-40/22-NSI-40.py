@@ -1,3 +1,4 @@
+# Exercice 1
 def recherche(elt, tab):
     '''
     Entrées :
@@ -18,6 +19,7 @@ def recherche(elt, tab):
 print(recherche(3, [3, 2, 1, 3, 2, 1]))
 print(recherche(4, [1, 2, 3]))
 
+# Exercice 2
 resultats = {'Dupont':{'DS1' : [15.5, 4],
                        'DM1' : [14.5, 1],
                        'DS2' : [13, 4],

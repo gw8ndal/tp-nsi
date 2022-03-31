@@ -1,3 +1,4 @@
+# Exercice 1
 def moyenne(liste):
     '''
     renvoie la moyenne pondérée de la liste
@@ -7,7 +8,7 @@ def moyenne(liste):
 
 print(moyenne([(15,2),(9,1),(12,3)]))
 
-
+# Exercice 2
 def pascal(n):
     C = [[1]]
     for k in range(1,n+1):
